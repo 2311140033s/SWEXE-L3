@@ -1,0 +1,23 @@
+<h1>学生一覧</h1>
+
+<%= link_to '新規登録', new_student_path %>
+
+<table>
+  <tr>
+    <th>学籍番号</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+  </tr>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.student_number %></td>
+      <td><%= student.name %></td>
+      <td><%= student.email %></td>
+      <td>
+        <%= link_to '詳細', student_path(student) %> |
+        <%= link_to '編集', edit_student_path(student) %> |
+        <%= link_to '削除', student_path(student), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
