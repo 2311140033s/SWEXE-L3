@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+#container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  gap: 10px;
+}
+#header { grid-area: header; background-color: #eee; padding: 10px; }
+#sidebar { grid-area: sidebar; background-color: #f8f8f8; padding: 10px; }
+#content { grid-area: content; padding: 10px; }
+#footer { grid-area: footer; background-color: #eee; padding: 10px; text-align: center; }
+
+/* ここから自分のデザイン */
+
+body {
+  background-color: #f8f8f8;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: #e0e0e0;
+  padding: 10px;
+  margin: 0;
+}
+
+#container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  gap: 10px;
+  margin: 10px;
+}
+
+#header { grid-area: header; background-color: #eee; padding: 10px; }
+#sidebar { grid-area: sidebar; background-color: #fafafa; padding: 10px; }
+#content { grid-area: content; background-color: white; padding: 10px; }
+#footer { grid-area: footer; background-color: #eee; padding: 10px; text-align: center; }
