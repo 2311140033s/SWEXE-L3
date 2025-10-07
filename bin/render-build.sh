@@ -1,9 +1,25 @@
-mkdir -p bin
-echo '#!/usr/bin/env bash
+#!/usr/bin/env bash
 # Exit on error
 set -o errexit
 
-bundle install
+# Install all gems specified in Gemfile
+echo "🔹 Installing gems..."
+bundle install --without development test
+
+# Ensure puma is installed on Render
+echo "🔹 Installing Puma web server..."
+gem install puma
+
+# Precompile assets for production
+echo "🔹 Precompiling assets..."
 bundle exec rake assets:precompile
+
+# Clean up old compiled assets
+echo "🔹 Cleaning old assets..."
 bundle exec rake assets:clean
-bundle exec rake db:migrate' > bin/render-build.sh
+
+# Run database migrations
+echo "🔹 Running database migrations..."
+bundle exec rake db:migrate
+
+echo "✅ Render build script completed successfully!"
